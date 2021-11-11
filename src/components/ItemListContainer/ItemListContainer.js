@@ -7,10 +7,9 @@ export const ItemListContainer = () => {
 
     return(
 
-        <div>
+        <container className="my-5">
             <h2>Hola Mundo</h2>
             <hr/>
-            <div >
                 <Carousel>
                     <Carousel.Item>
                         <img
@@ -49,8 +48,6 @@ export const ItemListContainer = () => {
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
-            </div>
-
-        </div>
+        </container>
     )
 }
