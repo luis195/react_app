@@ -2,13 +2,17 @@
 import React from "react";
 import './ItemListContainer.css'
 import {Carousel} from "react-bootstrap";
+import {ItemCount} from "../ItemCount/ItemCount";
+import {ProductCard} from"../ProductCard/ProductCard"
 
-export const ItemListContainer = () => {
+export const ItemListContainer = ({greeting, usuario}) => {
+
 
     return(
 
         <container className="my-5">
-            <h2>Hola Mundo</h2>
+            <h1>{greeting}</h1>
+            <h2>{usuario}</h2>
             <hr/>
                 <Carousel>
                     <Carousel.Item>
@@ -48,6 +52,8 @@ export const ItemListContainer = () => {
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
+            <ProductCard/>
+            <ItemCount stock={3}/>
         </container>
     )
 }

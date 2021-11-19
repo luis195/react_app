@@ -3,16 +3,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import {NavBar} from "./components/NavBar/NavBar";
 import {ItemListContainer} from "./components/ItemListContainer/ItemListContainer";
-import {ItemCount} from "./components/ItemCount/ItemCount";
-
 function App() {
+    const greeting = "Bienvenido"
+    const usuario = "Luis"
   return (
-    <>
+    <div className={"App"}>
       <NavBar/>
-      <ItemListContainer/>
-      <ItemCount/>
+      <ItemListContainer greeting= {greeting} usuario={usuario}/>
 
-    </>
+
+    </div>
   );
 }
 
