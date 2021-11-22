@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './ItemCount.css'
-import {Button} from "react-bootstrap";
+import {Button, Container} from "react-bootstrap";
 export const ItemCount = ({stock}) => {
     const [counter, setCounter] = useState(1)
 
@@ -28,10 +28,10 @@ export const ItemCount = ({stock}) => {
     }
     
     return(
-    <container className={'counter'}>
+    <Container className={'counter'}>
 
             Cantidad: {counter}
-        <container>
+        <Container>
             <Button onClick = {restarCantidad} variant="outline-primary">-</Button>{' '}
             <Button onClick = {agregarCantidad} variant="outline-primary">+</Button>{' '}
             <div className="mb-2">
@@ -40,7 +40,7 @@ export const ItemCount = ({stock}) => {
                 </Button>
             </div>
 
-        </container>
-    </container>
+        </Container>
+    </Container>
     )
 }

@@ -6,12 +6,11 @@ import {ItemListContainer} from "./components/ItemListContainer/ItemListContaine
 function App() {
     const greeting = "Bienvenido"
     const usuario = "Luis"
+
   return (
     <div className={"App"}>
       <NavBar/>
       <ItemListContainer greeting= {greeting} usuario={usuario}/>
-
-
     </div>
   );
 }

@@ -1,16 +1,38 @@
 
-import React from "react";
+import React, {useEffect, useState} from "react";
 import './ItemListContainer.css'
-import {Carousel} from "react-bootstrap";
+import {Carousel, Container} from "react-bootstrap";
 import {ItemCount} from "../ItemCount/ItemCount";
-import {ProductCard} from"../ProductCard/ProductCard"
+import {Item} from "../Item/Item"
+import {pedirDatos} from "../../helpers/pedirDatos";
+
 
 export const ItemListContainer = ({greeting, usuario}) => {
+    
+    const [loading, setLoading] = useState(false)
+    //const [productos, setProductos] = useState([])
+
+
+
+    useEffect(() =>{
+        setLoading(true)
+        pedirDatos(true)
+            .then( (response) => {
+                console.log(response)
+            })
+            .catch( (error) => {
+                console.log(error)
+                })
+            .finally(() =>{
+                setLoading(false)
+            })
+
+        },[])
 
 
     return(
 
-        <container className="my-5">
+        <Container className="my-5">
             <h1>{greeting}</h1>
             <h2>{usuario}</h2>
             <hr/>
@@ -52,8 +74,12 @@ export const ItemListContainer = ({greeting, usuario}) => {
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
-            <ProductCard/>
+            {
+                loading ? <h2>Cargando...</h2> : <Item/>
+            }
             <ItemCount stock={3}/>
-        </container>
+
+
+        </Container>
     )
 }
