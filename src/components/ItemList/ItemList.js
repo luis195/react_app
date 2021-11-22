@@ -8,13 +8,12 @@ import {ItemCount} from "../ItemCount/ItemCount";
 export const ItemList = ({productos}) => {
 
     return (
-
         <Container className="my-5">
             <h2>Productos</h2>
             <hr/>
             <Row>
-                {productos.map(()=>(
-                    <div className={"card m-3"}>
+                {productos.map((prod)=>(
+                    <div className= "card m-3" >
                         <Card style={{ width: '18rem' }}>
                             <Card.Img variant="top" src= {Candle} />
                             <Card.Body>
@@ -22,10 +21,10 @@ export const ItemList = ({productos}) => {
                                 <Card.Text>
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                 </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
+                                <Button variant="primary">Descripcion</Button>
                             </Card.Body>
                         </Card>
-                        <ItemCount/>
+                        <ItemCount stock={10}/>
                     </div>
 
                 ))}
