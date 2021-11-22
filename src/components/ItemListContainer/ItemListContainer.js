@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 import './ItemListContainer.css'
 import {Carousel, Container} from "react-bootstrap";
 import {ItemCount} from "../ItemCount/ItemCount";
-import {Item} from "../Item/Item"
+import {ItemList} from "../ItemList/ItemList"
 import {pedirDatos} from "../../helpers/pedirDatos";
 
 
@@ -73,16 +73,9 @@ export const ItemListContainer = ({greeting, usuario}) => {
                     </Carousel.Item>
                 </Carousel>
             {
-                loading ? <h2>Cargando...</h2>
-                    :<>
-                        {productos.map(() => (
-                            <div>
-                            <Item/>
-                            <ItemCount stock={5}/>
-                            </div>
-                            ))}
-
-                    </>
+                loading
+                    ? <h2>Cargando...</h2>
+                    : <ItemList productos = {productos}/>
             }
 
 
