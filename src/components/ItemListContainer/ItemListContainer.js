@@ -10,15 +10,13 @@ import {pedirDatos} from "../../helpers/pedirDatos";
 export const ItemListContainer = ({greeting, usuario}) => {
     
     const [loading, setLoading] = useState(false)
-    //const [productos, setProductos] = useState([])
-
-
+    const [productos, setProductos] = useState([])
 
     useEffect(() =>{
         setLoading(true)
         pedirDatos(true)
             .then( (response) => {
-                console.log(response)
+                setProductos(response)
             })
             .catch( (error) => {
                 console.log(error)
@@ -75,9 +73,17 @@ export const ItemListContainer = ({greeting, usuario}) => {
                     </Carousel.Item>
                 </Carousel>
             {
-                loading ? <h2>Cargando...</h2> : <Item/>
+                loading ? <h2>Cargando...</h2>
+                    :<>
+                        {productos.map(() => (
+                            <div>
+                            <Item/>
+                            <ItemCount stock={5}/>
+                            </div>
+                            ))}
+
+                    </>
             }
-            <ItemCount stock={3}/>
 
 
         </Container>
