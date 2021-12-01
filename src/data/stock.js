@@ -1,31 +1,39 @@
 export const stock = [
     {
-        id:1,
+        id: 1,
         price: 1500,
-        name: "Producto 1",
+        name: "Brisas del campo",
         desc: "Lorem ipsum",
-        img: "https://placeholder.com/220",
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1julhmO06_l27tBJ0PvNX_cM14YwVi7hUKdlbcMUS7yDT5HFQ0FAMWF03LeDpIshGMkI&usqp=CAU",
+        category: 'florales',
+        stock: 5
     },
     {
-        id:2,
+        id: 2,
         price: 2500,
-        name: "Producto 1",
+        name: "Lavanda",
         desc: "Lorem ipsum",
-        img: "https://placeholder.com/220",
+        img: "data:image/jpeg;base64,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",
+        category: 'florales',
+        stock: 5
     },
     {
-        id:3,
+        id: 3,
         price: 3500,
-        name: "Producto 1",
+        name: "Moka",
         desc: "Lorem ipsum",
-        img: "https://placeholder.com/220",
+        img: "https://lh3.googleusercontent.com/SPsUGzX-hCkO4MPwQy19XBlisn2MFOgn8ZwgUuwRIuSHpmvliGMHKzZ6oVpMT2v0kB6e=s85",
+        category: 'dulces',
+        stock: 5
     },
     {
-        id:4,
+        id: 4,
         price: 4500,
-        name: "Producto 1",
+        name: "Vainilla",
         desc: "Lorem ipsum",
-        img: "https://placeholder.com/220",
-    }
+        img: "https://lh3.googleusercontent.com/FNLYGIUFwIdU3p6bu6MLQoUetI4oUA106wGKfiHn5BXu4fNPOHz0kKtQQRfbsR3GIR9ozg=s85",
+        category: 'dulces',
+        stock: 5
+    },
 
 ]

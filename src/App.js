@@ -1,18 +1,37 @@
 import React from 'react';
+import  { NavBar }  from './components/NavBar/NavBar'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import {NavBar} from "./components/NavBar/NavBar";
-import {ItemListContainer} from "./components/ItemListContainer/ItemListContainer";
+import { BrowserRouter } from 'react-router-dom';
+import { AppRouter } from './router/AppRouter';
+import { CartProvider } from './context/CartContext';
+import { DarkModeProvider } from './context/DarkModeContext';
+
 function App() {
-    const greeting = "Bienvenido"
-    const usuario = "Luis"
+
 
   return (
-    <div className={"App"}>
-      <NavBar/>
-      <ItemListContainer greeting= {greeting} usuario={usuario}/>
-    </div>
+
+    <DarkModeProvider>
+      <CartProvider>
+
+        <BrowserRouter>
+            <NavBar/>
+            <AppRouter/>   
+        </BrowserRouter>
+        
+      </CartProvider>
+    </DarkModeProvider>
+
   );
 }
 
 export default App;
+
+
+/* <Routes>
+    <Route path="/" element={ <ItemListContainer /> }/>
+    <Route path="/productos/:catId" element={ <ItemListContainer /> }/>
+    <Route path="/detail/:itemId" element={ <ItemDetailContainer />} />
+    <Route path="/cart" element={ <CartView /> } />
+    <Route path="*" element={ <Navigate to="/" /> } />
+  </Routes> */

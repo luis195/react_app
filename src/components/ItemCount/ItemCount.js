@@ -1,46 +1,30 @@
-import React, {useState} from 'react';
-import './ItemCount.css'
-import {Button, Container} from "react-bootstrap";
-export const ItemCount = ({stock}) => {
-    const [counter, setCounter] = useState(1)
+import React from 'react'
 
+export const ItemCount = ( {max, setCantidad, cantidad, onAdd} ) => {
 
-    const agregarCantidad = () => {
-        if (stock > counter){
-            setCounter(counter + 1)
-        } else {
-            alert("No hay más stock de este producto")
-        }
-
-    }
-    const restarCantidad = () => {
-        if (counter>1){
-            setCounter(counter - 1)
-        }
-        else {
-            alert("El mínimo es 1")
-        }
-    }
     
-    const respuesta = () => {
-        alert( `Agregaste ${counter} productos`)
-      
+
+    const handleRestar = () => {
+        cantidad > 0 && setCantidad(cantidad - 1)
     }
-    
-    return(
-    <Container className={'counter'}>
 
-            Cantidad: {counter}
-        <Container>
-            <Button onClick = {restarCantidad} variant="outline-primary">-</Button>{' '}
-            <Button onClick = {agregarCantidad} variant="outline-primary">+</Button>{' '}
-            <div className="mb-2">
-                <Button variant="primary" size="lg" onClick={respuesta}>
-                    Agregar al Carrito
-                </Button>
-            </div>
+    const handleSumar = () => {
+        cantidad < max && setCantidad(cantidad + 1)
+    }
 
-        </Container>
-    </Container>
+    return (
+        <div className="my-3">
+            <button className="btn btn-outline-primary" onClick={handleRestar}>
+                -
+            </button>
+            <span className="mx-2">{cantidad}</span>
+            <button className="btn btn-primary" onClick={handleSumar}>
+                +
+            </button>
+            <br/>
+            <button className="btn btn-success my-2" onClick={onAdd}>
+                Agregar al carrito
+            </button>
+        </div>
     )
 }

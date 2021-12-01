@@ -1,26 +1,32 @@
-import React from 'react';
-import {CartWidget} from "../CartWidget/CartWidget";
-import {Container, Nav, Navbar} from 'react-bootstrap';
-import  './NavBar.css'
-import logo from './logo.PNG'
+import { Link } from 'react-router-dom'
+import { CartWidget } from '../CartWidget/CartWidget'
+import './NavBar.css'
+import {Container, Nav, Navbar} from "react-bootstrap";
 
 export const NavBar = () => {
 
-    return(
+    
+    return (
 
-        <header className="header">
-            <Navbar bg="light" variant="light">
-                <Container>
-                    <img src={logo} alt={"pic"}/>
-                    <Navbar.Brand href="#home">Candle Cake</Navbar.Brand>
-                    <Nav className="me-auto">
-                        <Nav.Link href="#home">Inicio</Nav.Link>
-                        <Nav.Link href="#features">Productos</Nav.Link>
-                        <Nav.Link href="#pricing">Promociones</Nav.Link>
+    <header className="header">
+        <Link to="/"><img src="../../images/logo.jpeg" alt="logo"/></Link>
+        <Navbar bg="#F2EBE9" variant="light">
+            <Container>
+                <Navbar.Brand href="/">ruah velas</Navbar.Brand>
+                <Nav className="me-auto">
+                    <Nav.Link href="productos/florales">Velas Florales</Nav.Link>
+                    <Nav.Link href="productos/dulces">Velas Dulces</Nav.Link>
+                    <Nav.Link hef="productos/combinadas">Velas Combinadas</Nav.Link>
                     </Nav>
-                    <CartWidget/>
-                </Container>
-            </Navbar>
-        </header>
+            </Container>
+        </Navbar>
+
+        
+        <Link to="cart"><CartWidget/></Link>
+        
+    </header>
     )
 }
+
+
+// export default NavBar
